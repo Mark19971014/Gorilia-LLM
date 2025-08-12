@@ -24,6 +24,8 @@ from bfcl_eval.model_handler.api_inference.openai_completion import (
     OpenAICompletionsHandler,
 )
 from bfcl_eval.model_handler.api_inference.openai_response import OpenAIResponsesHandler
+from bfcl_eval.model_handler.api_inference.azure_openai_completion_so import AzureOpenAICompletionsHandlerSO
+from bfcl_eval.model_handler.api_inference.azure_openai_completion import AzureOpenAICompletionsHandler
 from bfcl_eval.model_handler.api_inference.qwen import (
     QwenAgentNoThinkHandler,
     QwenAgentThinkHandler,
@@ -308,6 +310,45 @@ api_inference_model_map = {
         output_price=0.6,
         is_fc_model=True,
         underscore_to_dot=True,
+    ),
+    "azure-gpt-4o-2024-08-06-global": ModelConfig(
+    model_name="gpt-4o-2024-08-06-global",  
+    display_name="Azure gpt-4o-2024-08-06-global",
+    url="https://azure.microsoft.com/",
+    org="Azure OpenAI",
+    license="Proprietary",
+    #model_handler=AzureOpenAICompletionsHandler,
+    model_handler=AzureOpenAICompletionsHandlerSO,
+    input_price=0.0,
+    output_price=0.0,
+    is_fc_model=True,
+    underscore_to_dot=False,
+    ),
+    "azure-gpt-4o-mini-2024-07-18": ModelConfig(
+    model_name="gpt-4o-mini-2024-07-18",
+    display_name="Azure gpt-4o-mini-2024-07-18-global",
+    url="https://azure.microsoft.com/",
+    org="Azure OpenAI",
+    license="Proprietary",
+    #model_handler=AzureOpenAICompletionsHandler, 
+    model_handler=AzureOpenAICompletionsHandlerSO, 
+    input_price=0.0,
+    output_price=0.0,
+    is_fc_model=True,  # set to True if using function calling
+    underscore_to_dot=False,
+    ),
+    "azure-gpt-4.1": ModelConfig(
+    model_name="gpt-4.1",  
+    display_name="Azure gpt-4.1",
+    url="https://azure.microsoft.com/",
+    org="Azure OpenAI",
+    license="Proprietary",
+    #model_handler=AzureOpenAICompletionsHandler,
+    model_handler=AzureOpenAICompletionsHandlerSO,
+    input_price=0.0,
+    output_price=0.0,
+    is_fc_model=True,
+    underscore_to_dot=False,
     ),
     "o3-2025-04-16": ModelConfig(
         model_name="o3-2025-04-16",
